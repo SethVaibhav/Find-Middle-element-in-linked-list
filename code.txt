@@ -1,0 +1,51 @@
+//Time complexity=O(n)
+
+
+package interviewQuestion;
+
+public class MiddleElementLinkedList {
+Node head;
+
+	public void push(int new_data) {
+		Node new_node=new Node(new_data);
+		new_node.next=head;
+		head= new_node;
+		}
+	public void middle()
+	{
+		Node slow_p=head,fast_p=head;
+		if(head!=null)
+		{
+			while(fast_p!=null&&fast_p.next!=null)
+			{
+				slow_p=slow_p.next;
+				fast_p=fast_p.next.next;
+				}
+			System.out.println("middle element is" + slow_p.data);
+			
+		}
+	}
+	public void print() {
+		Node temp=head;
+		while(temp!=null)
+		{System.out.println(temp.data + " ");
+			temp=temp.next;
+			}
+		System.out.println("Null");
+	}
+	
+	
+	public static void main(String[] args) {
+		MiddleElementLinkedList llist= new MiddleElementLinkedList();
+		for(int i=5;i>0;i--)
+		{
+			llist.push(i);
+			llist.print();
+			llist.middle();
+			
+		}
+		
+
+	}
+
+}
